@@ -4,6 +4,12 @@ import joblib
 import numpy as np
 import os
 
+# --- Streamlit Page Configuration (MUST be the first Streamlit command) ---
+st.set_page_config(layout="wide", page_title="Sneaker Resale Price Predictor")
+st.title("👟 Prediktor Harga Jual Kembali Sneaker")
+st.markdown("Aplikasi ini memprediksi harga jual kembali sepatu sneaker berdasarkan model, colorway, kondisi, dan harga ritelnya.")
+st.markdown("--- ")
+
 # Define paths for artifacts
 model_path = 'best_sneaker_resale_model.pkl'
 features_path = 'model_features.pkl'
@@ -18,11 +24,6 @@ try:
 except FileNotFoundError:
     st.error("Error: File model tidak ditemukan. Pastikan 'ml_app.py' telah dijalankan terlebih dahulu untuk melatih dan menyimpan model serta artefaknya.")
     st.stop()
-
-st.set_page_config(layout="wide", page_title="Sneaker Resale Price Predictor")
-st.title("👟 Prediktor Harga Jual Kembali Sneaker")
-st.markdown("Aplikasi ini memprediksi harga jual kembali sepatu sneaker berdasarkan model, colorway, kondisi, dan harga ritelnya.")
-st.markdown("--- ")
 
 # --- Input Fields ---
 st.subheader("Masukkan Detail Sneaker")
